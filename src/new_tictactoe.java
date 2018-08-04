@@ -13,12 +13,6 @@ public class new_tictactoe {
 
 			}
 		}
-
-
-
-
-
-
 	}
 
 	private static char [][] board = { 
@@ -28,9 +22,6 @@ public class new_tictactoe {
 	};
 	
 	private static boolean BoardFull() {
-
-
-
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j<3; j++) {
 				if(board[i][j] == 'X' || board[i][j] == 'O') {
@@ -40,12 +31,7 @@ public class new_tictactoe {
 			}
 
 		}
-		if(check >= 9) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return(check >= 9);
 
 	}
 
@@ -55,7 +41,7 @@ public class new_tictactoe {
 
 		new_tictactoe game = new new_tictactoe();
 		game.print_board();
-		while(BoardFull() == false || ticker == false) {
+		while(!BoardFull() || !ticker) {
 			Scanner player_input = new Scanner(System.in);
 
 			int mark1 = Integer.parseInt(player_input.next());
@@ -66,7 +52,7 @@ public class new_tictactoe {
 			game.print_board();
 			BoardFull();
 			
-			if(winVertical() == true || winHorizontal() == true || winDiagonal() == true) {
+			if(winVertical() || winHorizontal() || winDiagonal()) {
 				System.out.println("DONE!");
 				ticker = true;
 				break;
@@ -75,10 +61,9 @@ public class new_tictactoe {
 
 			int mark3 = Integer.parseInt(player_input.next());
 			int mark4 = Integer.parseInt(player_input.next());
-			if(winVertical() == true || winHorizontal() == true || winDiagonal() == true) {
+			if(winVertical() || winHorizontal() || winDiagonal()) {
 				System.out.println("DONE!");
-			
-				
+						
 				ticker = true;
 				break;
 			}
